@@ -1,0 +1,5 @@
+site_name: Blog
+site_url: https://yaomengsi.github.io/blog
+theme:
+  name: material
+

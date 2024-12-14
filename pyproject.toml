@@ -2,14 +2,9 @@
 name = "blog"
 version = "0.1.0"
 description = "Add your description here"
-authors = [
-    { name = "miles", email = "286261602@qq.com" }
-]
-dependencies = [
-    "mkdocs-material>=9.5.31",
-]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">=3.12.4"
+dependencies = ["mkdocs-material>=9.5.31"]
 
 [tool.rye]
 managed = true

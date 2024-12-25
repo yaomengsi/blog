@@ -3,6 +3,15 @@
 ## wsl proxy to host ip:port
 
 ```sh
+# for wsl ip
+export HOST_IP="$(ip route show | grep -i default | awk '{ print $3}')"
+export WSL_IP="$(hostname -I | awk '{print $1}')"
+export ARCH_IP="$(wsl.exe -d Arch ip addr show eth0 | grep "inet " | awk '{print $2}'  | cut -d '/' -f1)"
+export FEDORA_IP="$(wsl.exe -d Fedora ip addr show eth0 | grep "inet " | awk '{print $2}'  | cut -d '/' -f1)"
+
+```
+
+```sh
 host_ip=$(ip route show | grep -i default | awk '{ print $3}')
 wsl_ip=$(hostname -I | awk '{print $1}')
 echo "host ip:" ${host_ip}

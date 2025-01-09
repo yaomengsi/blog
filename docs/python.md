@@ -23,28 +23,28 @@ trusted-host = pypi.org
 `cat ~/.config/uv/uv.toml`
 
 ```toml
-[[tool.uv.index]]
+[[index]]
 name = 'aliyun'
 url = "https://mirrors.aliyun.com/pypi/simple/"
 default = true
 
-[[tool.uv.index]]
+[[index]]
 name = 'tencent'
 url = "http://mirrors.cloud.tencent.com/pypi/simple"
 
-[[tool.uv.index]]
+[[index]]
 name = 'tsinghua'
 url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 
-[[tool.uv.index]]
+[[index]]
 name = 'douban'
 url = "http://pypi.douban.com/simple"
 
-[[tool.uv.index]]
+[[index]]
 name = 'ustc'
 url = "https://pypi.mirrors.ustc.edu.cn/simple/"
 
-[[tool.uv.index]]
+[[index]]
 name = "pypi"
 url = "https://pypi.org/simple"
 ```

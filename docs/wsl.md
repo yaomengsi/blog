@@ -28,3 +28,14 @@ export all_proxy="${proxy_http}"
 export ALL_PROXY="${proxy_http}"
 echo "proxy:" ${proxy_http}
 ```
+
+`cat /etc/fonts/local.conf`
+
+```xml
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+    <dir>/mnt/c/Windows/Fonts</dir>
+    <dir>/mnt/c/Users/m/AppData/Local/Microsoft/Windows/Fonts</dir>
+</fontconfig>
+```

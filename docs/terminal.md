@@ -2,7 +2,7 @@
 
 ## direnv
 
-```sh
+```bash
 export VIRTUAL_ENV=.venv
 source .venv/bin/activate
 ```

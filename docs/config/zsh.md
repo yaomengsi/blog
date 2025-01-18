@@ -4,9 +4,7 @@
 - starship
 - nvim
 
-`cat ~/.zshrc`
-
-```sh
+```bash title="~/.zshrc"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -61,9 +59,6 @@ eval "$(starship init zsh)"
 export HOST_IP="$(ip route show | grep -i default | awk '{ print $3}')"
 export WSL_IP="$(hostname -I | awk '{print $1}')"
 
-# aventa.nvim openai
-export OPENAI_API_KEY=""
-
 unset_proxy() {
     unset http_proxy
     unset HTTP_PROXY
@@ -73,4 +68,20 @@ unset_proxy() {
     unset ALL_PROXY
 }
 
+set_proxy() {
+    echo "host ip:" "${HOST_IP}"
+    echo "wsl ip:" "${WSL_IP}"
+    port=7897  # (1)!
+    proxy_http="http://${HOST_IP}:${port}"
+    export http_proxy="${proxy_http}"
+    export HTTP_PROXY="${proxy_http}"
+    export https_proxy="${proxy_http}"
+    export HTTPS_PROXY="${proxy_http}"
+    export all_proxy="${proxy_http}"
+    export ALL_PROXY="${proxy_http}"
+    echo "proxy:" "${proxy_http}"
+}
+
 ```
+
+1. proxy port

@@ -2,13 +2,48 @@ site_name: Blog
 site_url: https://yaomengsi.github.io/blog
 theme:
   name: material
+  language: en
+  palette: 
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
   features:
     - content.code.copy
     - content.code.select
     - content.code.annotate
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.instant.preview
+    - navigation.tracking
+    - navigation.sections
+    - navigation.path
+    - navigation.prune
+    - search.suggest
+    - search.highlight
+    - search.share
 plugins:
   - search
+  - tags
+  - blog:
+      enabled: false
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -25,9 +60,12 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
-# nav:
-#   - home:
-#       - index.md
-#   - Blog:
-#       - blog/index.md
-#
+extra:
+  alternate:
+    - name: 中文
+      link: /
+      lang: zh
+    - name: English
+      link: /blog/en/
+      lang: en
+

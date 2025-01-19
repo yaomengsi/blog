@@ -12,5 +12,6 @@ wheels/
 site
 
 *.log
+.cache
 
 .envrc

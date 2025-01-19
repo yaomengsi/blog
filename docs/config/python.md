@@ -24,9 +24,12 @@ trusted-host = pypi.org
 
 ```toml
 [[index]]
-name = 'aliyun'
 url = "https://mirrors.aliyun.com/pypi/simple/"
 default = true
+
+[[index]]
+name = 'aliyun'
+url = "https://mirrors.aliyun.com/pypi/simple/"
 
 [[index]]
 name = 'tencent'

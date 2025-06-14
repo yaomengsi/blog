@@ -7,6 +7,7 @@
 ```bash title="~/.zshrc"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -22,9 +23,14 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$HOME/.local/bin:$PATH"
-
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+# config
+
+# . "$HOME/.local/bin/env"
+. "$HOME/.cargo/env"
+export RUSTC_WRAPPER="/home/m/.cargo/bin/sccache"
+
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -58,6 +64,8 @@ eval "$(starship init zsh)"
 # for wsl ip
 export HOST_IP="$(ip route show | grep -i default | awk '{ print $3}')"
 export WSL_IP="$(hostname -I | awk '{print $1}')"
+export HOST_PROXY_PORT=7897
+export HOST_PROXY_HTTP="http://${HOST_IP}:${HOST_PROXY_PORT}"
 
 unset_proxy() {
     unset http_proxy
@@ -71,8 +79,7 @@ unset_proxy() {
 set_proxy() {
     echo "host ip:" "${HOST_IP}"
     echo "wsl ip:" "${WSL_IP}"
-    port=7897  # (1)!
-    proxy_http="http://${HOST_IP}:${port}"
+    proxy_http="${HOST_PROXY_HTTP}"
     export http_proxy="${proxy_http}"
     export HTTP_PROXY="${proxy_http}"
     export https_proxy="${proxy_http}"
@@ -81,6 +88,8 @@ set_proxy() {
     export ALL_PROXY="${proxy_http}"
     echo "proxy:" "${proxy_http}"
 }
+
+export PATH=$PATH:/usr/local/go/bin
 
 ```
 

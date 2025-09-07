@@ -64,7 +64,17 @@ eval "$(starship init zsh)"
 # for wsl ip
 export HOST_IP="$(ip route show | grep -i default | awk '{ print $3}')"
 export WSL_IP="$(hostname -I | awk '{print $1}')"
-export HOST_PROXY_PORT=7897
+
+# clash verge
+export _HOST_PROXY_PORT=7897
+# mihomo
+export _HOST_PROXY_PORT=7890
+# karing all
+export _HOST_PROXY_PORT=3066
+# karing rules
+export _HOST_PROXY_PORT=3067
+
+export HOST_PROXY_PORT=$_HOST_PROXY_PORT
 export HOST_PROXY_HTTP="http://${HOST_IP}:${HOST_PROXY_PORT}"
 
 unset_proxy() {
